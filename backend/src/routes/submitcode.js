@@ -47,7 +47,7 @@ const createSubmission = async (req, res) => {
 
         try {
             const response = await axios.request(options);
-            // console.log('Judge0 API response:', response.data);
+            console.log('Judge0 API response:', response.data);
 
             // //another way of doing it
             // const { status_id, stdout, stderr } = response.data;
