@@ -1,0 +1,17 @@
+.solution-page {
+    padding: 20px;
+}
+
+.solution-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.problem-section {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.submit-bar-section {
+    flex: 1;
+}

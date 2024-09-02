@@ -1,0 +1,45 @@
+/* src/styles/Contest.css */
+
+/* Container for the entire contest page */
+.contest-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 16px;
+    min-height: 100vh;
+    padding: 0 16px;
+  
+    /* Adjust for larger screens */
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(12, 1fr);
+      padding: 0 48px;
+    }
+  }
+  
+  /* Section for contest problems */
+  .problems-section {
+    grid-column: span 9;
+  }
+  
+  /* Sidebar for clock and points */
+  .sidebar {
+    grid-column: span 3;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  /* Clock section styling */
+  .clock-section {
+    padding-top: 16px;
+  
+    /* Adjust for larger screens */
+    @media (min-width: 768px) {
+      padding-top: 96px;
+    }
+  }
+  
+  /* Points section styling */
+  .points-section {
+    padding-top: 16px;
+  }
+  

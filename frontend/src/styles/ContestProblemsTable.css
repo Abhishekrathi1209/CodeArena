@@ -1,0 +1,52 @@
+.contest-problems-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.contest-main {
+    padding: 2rem 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.contest-title {
+    font-size: 1.75rem;
+    font-weight: bold;
+}
+
+.problems-table-container {
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.problem-title {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.problem-difficulty,
+.problem-submissions,
+.problem-status {
+    font-size: 0.875rem;
+    color: #6b7280;
+    /* Neutral gray color */
+}
+
+.solve-button {
+    width: 100%;
+}
+
+.status-icon {
+    vertical-align: middle;
+}

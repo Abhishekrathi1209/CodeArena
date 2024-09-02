@@ -1,0 +1,132 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+model User {
+  id                 String              @id @default(cuid())
+  email              String              @unique
+  name               String?
+  password           String
+  createdAt          DateTime            @default(now())
+  updatedAt          DateTime            @updatedAt
+  contestSubmissions ContestSubmission[]
+  role               UserRole            @default(USER)
+  submissions        Submission[]
+  contestPoints      ContestPoints[]
+}
+
+model Contest {
+  id                 String              @id @default(cuid())
+  title              String
+  description        String
+  startTime          DateTime
+  hidden             Boolean             @default(false)
+  submissions        Submission[]
+  endTime            DateTime
+  createdAt          DateTime            @default(now())
+  updatedAt          DateTime            @updatedAt
+  problems           ContestProblem[]
+  contestSubmissions ContestSubmission[]
+  leaderboard        Boolean             @default(false)
+}
+
+model ContestProblem {
+  id        String
+  contestId String
+  problemId String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  contest   Contest  @relation(fields: [contestId], references: [id])
+  problem   Problem  @relation(fields: [problemId], references: [id])
+  index     Int
+  solved    Int      @default(0)
+
+  @@id([contestId, problemId])
+}
+
+model Problem {
+  id                 String              @id @default(cuid())
+  title              String
+  description        String
+  hidden             Boolean             @default(false)
+  solved             Int                 @default(0)
+  createdAt          DateTime            @default(now())
+  updatedAt          DateTime            @updatedAt
+  difficulty         Difficulty          @default(MEDIUM)
+  contestSubmissions ContestSubmission[]
+  contests           ContestProblem[]
+  submissions        Submission[]
+  testCases          TestCase[]
+}
+
+model TestCase {
+  id           String   @id @default(cuid())
+  problemId    String
+  input        String
+  expectedOutput String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  problem      Problem  @relation(fields: [problemId], references: [id])
+
+  @@index([problemId])
+}
+
+model Submission {
+  id              String           @id @default(cuid())
+  problemId       String
+  userId          String
+  code            String
+  activeContestId String?
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime?        @updatedAt
+  status          SubmissionResult @default(PENDING)
+  activeContest   Contest?         @relation(fields: [activeContestId], references: [id])
+  user            User             @relation(fields: [userId], references: [id])
+  problem         Problem          @relation(fields: [problemId], references: [id])
+}
+
+model ContestSubmission {
+  id           String  @id @default(cuid())
+  userId       String
+  problemId    String
+  contestId    String
+  points       Int
+  user         User    @relation(fields: [userId], references: [id])
+  problem      Problem @relation(fields: [problemId], references: [id])
+  contest      Contest @relation(fields: [contestId], references: [id])
+
+  @@unique([userId, problemId, contestId])
+}
+
+model ContestPoints {
+  id        String @id @default(cuid())
+  contestId String
+  userId    String
+  points    Int
+  user      User   @relation(fields: [userId], references: [id])
+
+  @@unique([contestId, userId])
+}
+
+enum SubmissionResult {
+  AC
+  REJECTED
+  PENDING
+}
+
+enum UserRole {
+  ADMIN
+  USER
+}
+
+enum Difficulty {
+  EASY
+  MEDIUM
+  HARD
+}

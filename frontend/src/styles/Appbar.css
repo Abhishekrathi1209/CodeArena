@@ -1,0 +1,63 @@
+.appbar {
+  background-color: #1a202c;
+  color: white;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.appbar-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: white;
+}
+
+.appbar-icon {
+  height: 24px;
+  width: 24px;
+}
+
+.appbar-title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.appbar-nav {
+  /* font-size: 1.2rem; */
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .appbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .appbar-nav-link {
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: white;
+    transition: color 0.2s ease;
+    cursor: pointer;
+  }
+
+  .appbar-nav-link:hover {
+    text-decoration: underline;
+  }
+}
+
+.appbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.appbar-loading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}

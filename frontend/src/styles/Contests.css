@@ -1,0 +1,36 @@
+/* src/styles/Contests.css */
+.contests-container {
+    min-height: 100vh;
+  }
+  
+  .contests-section {
+    background-color: white;
+    padding: 2rem 1rem;
+  }
+  
+  .contests-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  .contests-header {
+    margin-bottom: 1.5rem;
+  }
+  
+  .contests-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .contests-description {
+    color: #6b7280; /* Gray-500 */
+  }
+  
+  .contests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  

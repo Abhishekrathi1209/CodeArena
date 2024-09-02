@@ -1,0 +1,15 @@
+.clock-container {
+    flex: 1;
+    padding: 16px 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Styling for the time display */
+  .clock-time {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4a4a4a; /* Gray color for the time */
+  }
+  

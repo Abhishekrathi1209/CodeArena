@@ -1,0 +1,78 @@
+.prose {
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  max-width: 600px;
+  border-radius: 8px;
+}
+
+.prose h1 {
+  font-size: 2rem;
+  color: #222;
+}
+
+.prose h2 {
+  font-size: 1.75rem;
+  color: #333;
+}
+
+.prose h3 {
+  font-size: 1.5rem;
+  color: #444;
+}
+
+.prose h4 {
+  font-size: 1.25rem;
+  color: #555;
+}
+
+.prose h5 {
+  font-size: 1rem;
+  color: #666;
+}
+
+.prose h6 {
+  font-size: 0.875rem;
+  color: #777;
+}
+
+.prose p {
+  margin: 0 0 1rem;
+  color: #333;
+}
+
+.prose code {
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+}
+
+.prose pre {
+  background-color: #282c34;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.prose blockquote {
+  border-left: 4px solid #ddd;
+  padding-left: 16px;
+  color: #666;
+  margin: 1.5em 0;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+}
+
+.prose ul, .prose ol {
+  margin: 0 0 1rem;
+  padding-left: 1.5rem;
+}
+
+.prose li {
+  margin-bottom: 0.5rem;
+}
+
+.prose strong {
+  font-weight: bold;
+  color: #222;
+}

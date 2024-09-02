@@ -1,0 +1,11 @@
+.contest-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contest-details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
