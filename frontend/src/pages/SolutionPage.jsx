@@ -12,11 +12,12 @@ export default function SolutionPage() {
     const [problem, setProblem] = useState(null);
     const { id } = useParams();
     const [loading, setLoading] = useState(true);
+    const apiUrl = import.meta.env.backend_url
 
     useEffect(() => {
         async function fetchProblems() {
             try {
-                const response = await fetch('http://localhost:3000/api/problems/' + id);
+                const response = await fetch(`${apiUrl}/api/problems` + id);
                 if (!response.ok) {
                     throw new Error('Failed to fetch problems');
                 }

@@ -5,11 +5,12 @@ import Loader from '../components/Loader';
 export default function ProblemsPage() {
   const [problems, setProblems] = useState([]);
   const [loading, setLoading] = useState(true);
+  const apiUrl = import.meta.env.backend_url
 
   useEffect(() => {
     async function fetchProblems() {
       try {
-        const response = await fetch('http://localhost:3000/api/problems'); // Adjust this URL if necessary
+        const response = await fetch(`${apiUrl}/api/problems`); // Adjust this URL if necessary
         if (!response.ok) {
           throw new Error('Failed to fetch problems');
         }

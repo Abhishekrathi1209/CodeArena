@@ -14,6 +14,7 @@ export default function LoginPage() {
     const [error, setError] = useState(null);
     const navigate = useNavigate();
     const { login } = useContext(AuthContext);
+    const apiUrl = import.meta.env.backend_url
 
 
     const toggleMode = () => {
@@ -30,7 +31,7 @@ export default function LoginPage() {
 
         try {
             if (isLogin) {
-                const response = await axios.post('http://localhost:3000/api/auth/login', {
+                const response = await axios.post(`${apiUrl}/api/auth/login`, {
                     email,
                     password
                 });
@@ -38,7 +39,7 @@ export default function LoginPage() {
                 login(response.data.token);
                 navigate('/');
             } else {
-                const response = await axios.post('http://localhost:3000/api/auth/register', {
+                const response = await axios.post(`${apiUrl}/api/auth/register`, {
                     name,
                     email,
                     password

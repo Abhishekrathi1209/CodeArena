@@ -55,6 +55,7 @@ function SubmitProblem({ problem, contestId }) {
     const [status, setStatus] = useState(SubmitStatus.SUBMIT);
     const [token, setToken] = useState(null);
     const [message, setMessage] = useState("Solve The Problem");
+    const apiUrl = import.meta.env.backend_url
 
     useEffect(() => {
         const jwttoken = localStorage.getItem('token');
@@ -74,7 +75,7 @@ function SubmitProblem({ problem, contestId }) {
             console.log("problemId: ", problem.id);
             console.log("activeContestId: ", contestId);
             console.log("authorization", token);
-            const response = await axios.post('http://localhost:3000/api/submitcode', {
+            const response = await axios.post(`${apiUrl}/api/submitcode`, {
                 sourceCode: code[language],
                 languageId: LANGUAGE_MAPPING[language].Lang_Id,
                 problemId: problem.id,
