@@ -10,7 +10,7 @@ export default function ProblemsPage() {
   useEffect(() => {
     async function fetchProblems() {
       try {
-        const response = await fetch(`${apiUrl}/api/problems/`); // Adjust this URL if necessary
+        const response = await fetch('https://codearena-backend-47pw.onrender.com/api/problems/');
         if (!response.ok) {
           throw new Error('Failed to fetch problems');
         }
