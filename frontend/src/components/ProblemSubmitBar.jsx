@@ -75,7 +75,7 @@ function SubmitProblem({ problem, contestId }) {
             console.log("problemId: ", problem.id);
             console.log("activeContestId: ", contestId);
             console.log("authorization", token);
-            const response = await axios.post(`${apiUrl}/api/submitcode`, {
+            const response = await axios.post('https://codearena-backend-47pw.onrender.com/api/submitcode', {
                 sourceCode: code[language],
                 languageId: LANGUAGE_MAPPING[language].Lang_Id,
                 problemId: problem.id,
